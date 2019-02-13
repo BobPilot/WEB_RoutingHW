@@ -1,0 +1,9 @@
+<div class="alert alert-success" role="alert"
+     *ngIf="service.valid; else notSuccess">
+  A simple success alert—check it out!
+</div>
+<ng-template #notSuccess>
+  <div class="alert alert-warning" role="alert">
+    Email or Phone isn't unique
+  </div>
+</ng-template>

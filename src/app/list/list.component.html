@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-6">
+    <ul class="list-group">
+      <li class="list-group-item" style="width: 100%"
+          *ngFor="let contact of service.contacts; let i = index"
+          (click)="service.showContact(contact)"
+      >{{contact.name}}
+        <button class="btn btn-danger right" (click)="service.removeContact(i)">Delete</button>
+      </li>
+    </ul>
+  </div>
+  <div class="col-6" *ngIf="service.currentContact != null">
+    <app-card *ngIf="!service.isEdit; else edit"></app-card>
+    <ng-template #edit>
+      <app-edit></app-edit>
+    </ng-template>
+    <app-alert *ngIf="service.contacts.length != 0"></app-alert>
+  </div>
+</div>
+
